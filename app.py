@@ -1,16 +1,14 @@
-import streamlit as st, nom, numer
-from pathlib import Path
+import streamlit as st
 
-st.title("La mia applicazione")
+st.title("Il mio programma")
 
-nome = st.text_input("Come ti chiami?")
+nome = st.text_input("Inserisci il nome")
+numero = st.number_input(
+    "Inserisci un numero",
+    min_value=0,
+    step=1
+)
 
-if nome:
-    st.write(f"Ciao, {nome}!")
-
-nome = nom.text_input("Inserisci il nome: ")
-numero = int(numer.text_input("Inserisci un numero: "))
-
-risultato = numero * 2
-
- numero.write(f"{nom}, il risultato è {risultato}")
+if st.button("Esegui"):
+    risultato = numero * 2
+    st.success(f"{nome}, il risultato è {risultato}")
