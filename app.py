@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st, nom, numer
 from pathlib import Path
 
 st.title("La mia applicazione")
@@ -13,4 +13,4 @@ numero = int(numer.text_input("Inserisci un numero: "))
 
 risultato = numero * 2
 
-print(f"{nom}, il risultato è {risultato}")
+ st.write(f"{nom}, il risultato è {risultato}")
