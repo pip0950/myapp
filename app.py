@@ -1,14 +1,16 @@
 import streamlit as st
+import pandas as pd
 
-st.title("Il mio programma")
+st.title("Importazione file")
 
-nome = st.text_input("Inserisci il nome")
-numero = st.number_input(
-    "Inserisci un numero",
-    min_value=0,
-    step=1
+file_caricato = st.file_uploader(
+    "Seleziona un file CSV",
+    type=["csv"]
 )
 
-if st.button("Esegui"):
-    risultato = numero * 2
-    st.success(f"{nome}, il risultato è {risultato}")
+if file_caricato is not None:
+    dati = pd.read_csv(file_caricato)
+
+    st.success(f"File caricato: {file_caricato.name}")
+    st.write("Numero di righe:", len(dati))
+    st.dataframe(dati)
