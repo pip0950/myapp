@@ -8,21 +8,18 @@ file_step = st.file_uploader(
 )
 
 if file_step is not None:
-    try:
-        # Legge il file e lo converte in testo
-        contenuto = file_step.getvalue().decode("utf-8")
+    contenuto = file_step.getvalue().decode("latin-1")
 
-        # Divide il contenuto in righe
-        righe = contenuto.splitlines()
+    # Mantiene i caratteri di fine riga
+    prime_10_righe = contenuto.splitlines(keepends=True)[:10]
+    testo_da_salvare = "".join(prime_10_righe)
 
-        st.success(f"File caricato: {file_step.name}")
-        st.write(f"Numero di righe: {len(righe)}")
+    st.subheader("Prime 10 righe")
+    st.code(testo_da_salvare, language="text")
 
-        # Mostra le righe numerate
-        st.subheader("Contenuto del file")
-
-        for numero, riga in enumerate(righe, start=1):
-            st.text(f"{numero}: {riga}")
-
-    except UnicodeDecodeError:
-        st.error("Il file non è codificato in UTF-8.")
+    st.download_button(
+        "Scarica il file TXT",
+        data=testo_da_salvare.encode("utf-8"),
+        file_name="prime_10_righe.txt",
+        mime="text/plain"
+    )
