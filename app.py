@@ -4,8 +4,8 @@ import pandas as pd
 st.title("Importazione file")
 
 file_caricato = st.file_uploader(
-    "Seleziona un file CSV",
-    type=["csv"]
+    "Seleziona un file STEP",
+    type=["stp"]
 )
 
 if file_caricato is not None:
