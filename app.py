@@ -13,4 +13,4 @@ numero = int(numer.text_input("Inserisci un numero: "))
 
 risultato = numero * 2
 
- st.write(f"{nom}, il risultato è {risultato}")
+ numero.write(f"{nom}, il risultato è {risultato}")
