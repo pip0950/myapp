@@ -7,3 +7,10 @@ nome = st.text_input("Come ti chiami?")
 
 if nome:
     st.write(f"Ciao, {nome}!")
+
+nome = nom.text_input("Inserisci il nome: ")
+numero = int(numer.text_input("Inserisci un numero: "))
+
+risultato = numero * 2
+
+print(f"{nom}, il risultato è {risultato}")
